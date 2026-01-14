@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
@@ -20,8 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
         <div className="flex items-center gap-3 font-bold text-xl tracking-tighter">
           <div className="relative flex items-center justify-center">
             <div className="absolute inset-0 bg-[#8B7EFF]/20 blur-lg rounded-full" />
-            // <Logo className="w-10 h-10" />
-            // <img src="" />
+            <Logo className="w-10 h-10" />
           </div>
           <span className="hidden xs:block">GHOSTS NOTES</span>
         </div>

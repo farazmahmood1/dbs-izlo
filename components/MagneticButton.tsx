@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -7,9 +6,16 @@ interface MagneticButtonProps {
   className?: string;
   onClick?: () => void;
   primary?: boolean;
+  href?: string;
 }
 
-const MagneticButton: React.FC<MagneticButtonProps> = ({ children, className = "", onClick, primary = false }) => {
+const MagneticButton: React.FC<MagneticButtonProps> = ({ 
+  children, 
+  className = "", 
+  onClick, 
+  primary = false,
+  href 
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -26,6 +32,9 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({ children, className = "
     setPosition({ x: 0, y: 0 });
   };
 
+  // If href is provided, render as motion.a, otherwise motion.button
+  const MotionComponent = href ? motion.a : motion.button;
+
   return (
     <div
       ref={ref}
@@ -33,7 +42,8 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({ children, className = "
       onMouseLeave={handleMouseLeave}
       className={`relative inline-block ${className}`}
     >
-      <motion.button
+      <MotionComponent
+        href={href}
         animate={{ x: position.x, y: position.y }}
         transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
         onClick={onClick}
@@ -44,7 +54,7 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({ children, className = "
         }`}
       >
         {children}
-      </motion.button>
+      </MotionComponent>
     </div>
   );
 };

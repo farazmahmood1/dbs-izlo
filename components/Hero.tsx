@@ -62,6 +62,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
               style={{ y: y1, scale }}
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
+              // Fix: Framer Motion transition uses 'ease' instead of 'base' for easing functions
               transition={{ duration: 0.8, ease: "circOut" }}
               className="text-[14vw] sm:text-[12vw] font-black leading-[0.85] tracking-tighter drop-shadow-2xl text-[#212121] dark:text-white"
             >
@@ -88,16 +89,10 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           </motion.p>
 
           <div className="flex flex-wrap gap-4 mt-10">
-            <MagneticButton primary onClick={() => {
-                const el = document.getElementById('download');
-                el?.scrollIntoView({ behavior: 'smooth' });
-            }}>
+            <MagneticButton primary href="#download">
               Download Free <ArrowRight size={20} />
             </MagneticButton>
-            <MagneticButton onClick={() => {
-                const el = document.getElementById('how-it-works');
-                el?.scrollIntoView({ behavior: 'smooth' });
-            }}>
+            <MagneticButton href="#how-it-works">
               See How It Works
             </MagneticButton>
           </div>
