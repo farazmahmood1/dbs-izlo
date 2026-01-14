@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -40,7 +39,7 @@ const FAQ: React.FC = () => {
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-white/10 overflow-hidden">
+            <div key={i} className="border-b border-black/10 dark:border-white/10 overflow-hidden">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full py-6 flex items-center justify-between text-left hover:text-[#8B7EFF] transition-colors"

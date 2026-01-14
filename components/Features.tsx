@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-// Fixed: CloudLock is not exported from lucide-react, using Cloud instead.
 import { EyeOff, Zap, Palette, Layers, Keyboard, Cloud } from 'lucide-react';
 
 const featureList = [
@@ -31,7 +29,6 @@ const featureList = [
     description: "Global hotkeys let you jot down thoughts without ever leaving your current app."
   },
   {
-    // Fixed: Using Cloud icon for Cloud Sync feature.
     icon: <Cloud className="text-[#8B7EFF]" size={32} />,
     title: "Cloud Sync (Premium)",
     description: "Secure, end-to-end encrypted backup and sync across all your devices."
@@ -40,7 +37,7 @@ const featureList = [
 
 const Features: React.FC = () => {
   return (
-    <section id="features" className="py-24 px-6 bg-white/5 relative">
+    <section id="features" className="py-24 px-6 bg-transparent relative">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <motion.div 
@@ -72,7 +69,7 @@ const Features: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10 }}
-              className="p-8 rounded-3xl border border-white/5 hover:border-[#8B7EFF]/30 transition-all duration-300 group relative overflow-hidden bg-black/20 backdrop-blur-sm"
+              className="p-8 rounded-3xl border border-black/5 dark:border-white/5 hover:border-[#8B7EFF]/30 transition-all duration-300 group relative overflow-hidden bg-white dark:bg-black/20 shadow-sm dark:shadow-none backdrop-blur-sm"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                 {f.icon}

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Twitter, Github, Linkedin, Mail } from 'lucide-react';
 import Logo from './Logo';
@@ -10,7 +9,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ isDarkMode, toggleTheme }) => {
   return (
-    <footer className="py-20 px-6 border-t border-white/5">
+    <footer className="py-20 px-6 border-t border-black/5 dark:border-white/5 transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
           <div className="lg:col-span-2">
@@ -23,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode, toggleTheme }) => {
             </p>
             <div className="flex gap-4">
               {[Twitter, Github, Linkedin, Mail].map((Icon, i) => (
-                <a key={i} href="#" className="p-2 rounded-full glass hover:text-[#8B7EFF] transition-all">
+                <a key={i} href="#" className={`p-2 rounded-full transition-all ${isDarkMode ? 'glass' : 'bg-white border border-black/5 shadow-sm'} hover:text-[#8B7EFF]`}>
                   <Icon size={20} />
                 </a>
               ))}
@@ -61,16 +60,16 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode, toggleTheme }) => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5 opacity-40 text-sm">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-black/5 dark:border-white/5 opacity-40 text-sm">
           <p>© 2026 Ghosts Notes. All rights reserved.</p>
           <div className="flex items-center gap-8">
              <button onClick={toggleTheme} className="hover:text-[#8B7EFF] transition-colors">
                Switch to {isDarkMode ? 'Light' : 'Dark'} Mode
              </button>
-             <select className="bg-transparent border-none focus:ring-0 cursor-pointer">
-               <option>English</option>
-               <option>Spanish</option>
-               <option>Japanese</option>
+             <select className={`bg-transparent border-none focus:ring-0 cursor-pointer ${isDarkMode ? 'text-white' : 'text-black'}`}>
+               <option className="bg-[#F6F6F6] dark:bg-[#0A0E27]">English</option>
+               <option className="bg-[#F6F6F6] dark:bg-[#0A0E27]">Spanish</option>
+               <option className="bg-[#F6F6F6] dark:bg-[#0A0E27]">Japanese</option>
              </select>
           </div>
         </div>

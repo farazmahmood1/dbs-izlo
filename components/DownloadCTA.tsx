@@ -1,13 +1,12 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Monitor, Apple, Terminal } from 'lucide-react';
+import { Monitor, Apple, Terminal } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 
 const DownloadCTA: React.FC = () => {
   return (
-    <section id="download" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#8B7EFF]/5 -z-10" />
+    <section id="download" className="py-32 px-6 relative overflow-hidden transition-colors duration-500">
+      <div className="absolute inset-0 bg-[#8B7EFF]/5 dark:bg-[#8B7EFF]/10 -z-10" />
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#8B7EFF]/30 to-transparent" />
       
       <div className="max-w-4xl mx-auto text-center">

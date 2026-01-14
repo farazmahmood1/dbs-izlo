@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -25,7 +24,7 @@ const App: React.FC = () => {
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <div className="relative overflow-x-hidden min-h-screen">
+    <div className="relative overflow-x-hidden min-h-screen bg-[#F6F6F6] dark:bg-[#0A0E27] transition-colors duration-500">
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       
       <main>
@@ -33,7 +32,7 @@ const App: React.FC = () => {
         <Features />
         <HowItWorks />
         <UseCases />
-        <Pricing />
+        <Pricing isDarkMode={isDarkMode} />
         <FAQ />
         <DownloadCTA />
       </main>
@@ -42,8 +41,20 @@ const App: React.FC = () => {
 
       {/* Background Decor */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#8B7EFF] opacity-[0.05] blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] rounded-full bg-[#6D9886] opacity-[0.05] blur-[100px]" />
+        <motion.div 
+          animate={{ 
+            opacity: isDarkMode ? 0.05 : 0.08,
+            scale: isDarkMode ? 1 : 1.1
+          }}
+          className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#8B7EFF] blur-[120px]" 
+        />
+        <motion.div 
+          animate={{ 
+            opacity: isDarkMode ? 0.05 : 0.08,
+            scale: isDarkMode ? 1 : 1.1
+          }}
+          className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] rounded-full bg-[#6D9886] blur-[100px]" 
+        />
       </div>
     </div>
   );

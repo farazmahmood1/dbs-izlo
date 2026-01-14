@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
@@ -44,7 +43,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
         </div>
       </div>
 
-      <div className={`absolute inset-0 -z-10 transition-opacity duration-1000 ${!isDarkMode ? 'opacity-100' : 'opacity-0'} bg-gradient-to-bl from-[#8B7EFF]/20 via-[#6D9886]/10 to-[#F6F6F6]`} />
+      <div className={`absolute inset-0 -z-10 transition-opacity duration-1000 ${!isDarkMode ? 'opacity-100' : 'opacity-0'} bg-gradient-to-bl from-[#8B7EFF]/10 via-[#6D9886]/10 to-[#F6F6F6]`} />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="flex flex-col gap-2">
@@ -64,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "circOut" }}
-              className="text-[14vw] sm:text-[12vw] font-black leading-[0.85] tracking-tighter drop-shadow-2xl"
+              className="text-[14vw] sm:text-[12vw] font-black leading-[0.85] tracking-tighter drop-shadow-2xl text-[#212121] dark:text-white"
             >
               GHOSTS <br /> NOTES
             </motion.h1>
@@ -74,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -bottom-10 -left-10 md:left-20 w-48 h-48 sm:w-96 sm:h-96 pointer-events-none select-none flex items-center justify-center z-20"
             >
-              <div className="absolute w-full h-full bg-[#8B7EFF] rounded-full blur-[120px] opacity-30" />
+              <div className="absolute w-full h-full bg-[#8B7EFF] rounded-full blur-[120px] opacity-20" />
               <Logo className="w-full h-full" />
             </motion.div>
           </div>
@@ -83,7 +82,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-lg md:text-2xl mt-8 max-w-xl opacity-80"
+            className="text-lg md:text-2xl mt-8 max-w-xl opacity-80 text-[#212121] dark:text-[#F6F6F6]"
           >
             Your private desktop companion. Secure reminders that vanish when you share your screen.
           </motion.p>
@@ -103,7 +102,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
             </MagneticButton>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16 border-t border-white/10 pt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16 border-t border-black/10 dark:border-white/10 pt-8">
             {features.map((feature, i) => (
               <motion.div
                 key={i}
@@ -125,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           style={{ opacity: opacityText }}
           className="hidden xl:block absolute right-0 bottom-40 max-w-sm"
         >
-          <div className={`p-8 rounded-2xl ${isDarkMode ? 'glass' : 'glass-light shadow-xl'} border-l-4 border-l-[#8B7EFF]`}>
+          <div className={`p-8 rounded-2xl ${isDarkMode ? 'glass' : 'glass-light'} border-l-4 border-l-[#8B7EFF]`}>
             <p className="text-lg leading-relaxed mb-6">
               "Keep your private notes, reminders, and ideas completely hidden when sharing your screen. Perfect for meetings, presentations, and content creation."
             </p>

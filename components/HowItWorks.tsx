@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, Edit3, ScreenShare, Eye, EyeOff } from 'lucide-react';
@@ -47,7 +46,6 @@ const HowItWorks: React.FC = () => {
                 className="flex gap-6 items-start group"
               >
                 <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-[#8B7EFF]/10 border border-[#8B7EFF]/20 flex items-center justify-center text-[#8B7EFF] group-hover:bg-[#8B7EFF] group-hover:text-white transition-all">
-                  {/* Fixed: Added type cast to any for React.cloneElement to allow passing 'size' prop to Lucide icons. */}
                   {React.cloneElement(step.icon as React.ReactElement<any>, { size: 32 })}
                 </div>
                 <div>
@@ -67,33 +65,33 @@ const HowItWorks: React.FC = () => {
 
           <div className="relative group">
             <div className="absolute inset-0 bg-[#8B7EFF]/20 blur-[80px] rounded-full group-hover:opacity-100 opacity-60 transition-opacity" />
-            <div className="relative glass rounded-3xl p-4 md:p-8 aspect-video flex flex-col items-center justify-center shadow-2xl">
-               <div className="flex gap-2 mb-8 p-1 rounded-full bg-black/20 backdrop-blur-md">
+            <div className="relative bg-white/40 dark:bg-white/5 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-3xl p-4 md:p-8 aspect-video flex flex-col items-center justify-center shadow-2xl">
+               <div className="flex gap-2 mb-8 p-1 rounded-full bg-black/10 dark:bg-black/20 backdrop-blur-md">
                  <button 
                    onClick={() => setViewMode('me')}
-                   className={`flex items-center gap-2 px-6 py-2 rounded-full text-sm font-bold transition-all ${viewMode === 'me' ? 'bg-[#8B7EFF] text-white' : 'text-white/60 hover:text-white'}`}
+                   className={`flex items-center gap-2 px-6 py-2 rounded-full text-sm font-bold transition-all ${viewMode === 'me' ? 'bg-[#8B7EFF] text-white' : 'text-black/60 dark:text-white/60 hover:text-[#8B7EFF]'}`}
                  >
                    <Eye size={16} /> Your View
                  </button>
                  <button 
                    onClick={() => setViewMode('viewers')}
-                   className={`flex items-center gap-2 px-6 py-2 rounded-full text-sm font-bold transition-all ${viewMode === 'viewers' ? 'bg-[#8B7EFF] text-white' : 'text-white/60 hover:text-white'}`}
+                   className={`flex items-center gap-2 px-6 py-2 rounded-full text-sm font-bold transition-all ${viewMode === 'viewers' ? 'bg-[#8B7EFF] text-white' : 'text-black/60 dark:text-white/60 hover:text-[#8B7EFF]'}`}
                  >
                    <EyeOff size={16} /> Viewers' View
                  </button>
                </div>
 
-               <div className="w-full h-full border border-white/10 rounded-xl relative overflow-hidden bg-white/5 p-4 flex flex-col gap-4">
+               <div className="w-full h-full border border-black/10 dark:border-white/10 rounded-xl relative overflow-hidden bg-white/40 dark:bg-white/5 p-4 flex flex-col gap-4 shadow-inner">
                   {/* Mock Desktop Content */}
-                  <div className="flex items-center gap-2 border-b border-white/5 pb-2">
+                  <div className="flex items-center gap-2 border-b border-black/10 dark:border-white/5 pb-2">
                     <div className="w-3 h-3 rounded-full bg-red-500/50" />
                     <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                     <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                    <div className="w-32 h-2 bg-white/10 rounded-full ml-4" />
+                    <div className="w-32 h-2 bg-black/10 dark:bg-white/10 rounded-full ml-4" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="h-24 bg-white/5 rounded-lg animate-pulse" />
-                    <div className="h-24 bg-white/5 rounded-lg animate-pulse" />
+                    <div className="h-24 bg-black/5 dark:bg-white/5 rounded-lg animate-pulse" />
+                    <div className="h-24 bg-black/5 dark:bg-white/5 rounded-lg animate-pulse" />
                   </div>
                   
                   {/* Sticky Notes */}
@@ -130,8 +128,8 @@ const HowItWorks: React.FC = () => {
                       className="absolute inset-0 flex items-center justify-center bg-[#8B7EFF]/5 pointer-events-none"
                     >
                       <div className="flex flex-col items-center gap-2">
-                        <ScreenShare size={48} className="opacity-20" />
-                        <p className="text-sm font-medium opacity-20 uppercase tracking-widest">Shared View</p>
+                        <ScreenShare size={48} className="opacity-20 text-black dark:text-white" />
+                        <p className="text-sm font-medium opacity-20 uppercase tracking-widest text-black dark:text-white">Shared View</p>
                       </div>
                     </motion.div>
                   )}

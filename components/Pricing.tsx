@@ -1,10 +1,13 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Star } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 
-const Pricing: React.FC = () => {
+interface PricingProps {
+  isDarkMode: boolean;
+}
+
+const Pricing: React.FC<PricingProps> = ({ isDarkMode }) => {
   return (
     <section id="pricing" className="py-24 px-6 relative">
       <div className="max-w-5xl mx-auto">
@@ -33,7 +36,7 @@ const Pricing: React.FC = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-10 rounded-3xl glass relative overflow-hidden flex flex-col"
+            className={`p-10 rounded-3xl relative overflow-hidden flex flex-col transition-colors duration-500 shadow-xl ${isDarkMode ? 'glass' : 'bg-white border border-black/5'}`}
           >
             <div className="mb-8">
               <h3 className="text-2xl font-bold mb-2">Free</h3>
@@ -57,7 +60,7 @@ const Pricing: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-10 rounded-3xl bg-[#8B7EFF] text-white relative overflow-hidden flex flex-col shadow-2xl shadow-[#8B7EFF]/20"
+            className="p-10 rounded-3xl bg-[#8B7EFF] text-white relative overflow-hidden flex flex-col shadow-2xl shadow-[#8B7EFF]/30"
           >
             <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/20 text-xs font-black uppercase tracking-widest flex items-center gap-1">
               <Star size={12} fill="white" /> Best Value
